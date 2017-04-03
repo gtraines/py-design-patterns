@@ -32,7 +32,7 @@ class AbstractCommand(object):
     __metaclass__ = ABCMeta
     
     def __init__(self, recv):
-        self.recv = recv
+        self.recv = recv # constructed with Receiver object as parameter
         
     @abstractmethod
     def execute(self):
@@ -51,7 +51,7 @@ class Receiver(object):
 
 class Invoker(object):
     def command(self, cmd):
-        self.cmd = cmd
+        self.cmd = cmd # takes an instance of the command
         
     def execute(self):
         self.cmd.execute()
